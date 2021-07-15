@@ -1,0 +1,187 @@
+bplist00Ñ_WebMainResourceÕ	
+^WebResourceURL_WebResourceFrameName_WebResourceData_WebResourceMIMEType_WebResourceTextEncodingName_¯file:///var/mobile/Containers/Shared/AppGroup/1519491C-DEF2-4072-98E4-6846A804C22E/ShareInbox/3d29e84985e10f13/tagesschau.de%20News%20Widget%20%F0%9F%87%A9%F0%9F%87%AA.js.htmlPOXi<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+<meta name="Generator" content="Cocoa HTML Writer">
+<style type="text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 15.0px Menlo; color: #a0a1a7; background-color: #fafafa}
+p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 15.0px Menlo; color: #383a42; background-color: #fafafa; min-height: 17.5px}
+p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 15.0px Menlo; color: #383a42; background-color: #fafafa}
+p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 15.0px Menlo; color: #a626a4; background-color: #fafafa}
+p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 15.0px Menlo; color: #50a14f; background-color: #fafafa}
+p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 15.0px Menlo; color: #c18401; background-color: #fafafa}
+p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 15.0px Menlo; color: #e45649; background-color: #fafafa}
+span.s1 {font-family: 'Menlo-Regular'; font-weight: normal; font-style: normal; font-size: 15.00px}
+span.s2 {font-family: 'Apple Color Emoji'; font-weight: normal; font-style: normal; font-size: 15.00px}
+span.s3 {font-family: 'Menlo-Regular'; font-weight: normal; font-style: normal; font-size: 15.00px; color: #a626a4}
+span.s4 {font-family: 'Menlo-Regular'; font-weight: normal; font-style: normal; font-size: 15.00px; color: #383a42}
+span.s5 {font-family: 'Menlo-Regular'; font-weight: normal; font-style: normal; font-size: 15.00px; color: #c18401}
+span.s6 {font-family: 'Menlo-Regular'; font-weight: normal; font-style: normal; font-size: 15.00px; color: #986801}
+span.s7 {font-family: 'Menlo-Regular'; font-weight: normal; font-style: normal; font-size: 15.00px; color: #0184bb}
+span.s8 {font-family: 'Menlo-Regular'; font-weight: normal; font-style: normal; font-size: 15.00px; color: #50a14f}
+</style>
+</head>
+<body>
+<p class="p1"><span class="s1">// Variables used by Scriptable.</span></p>
+<p class="p1"><span class="s1">// These must be at the very top of the file. Do not edit.</span></p>
+<p class="p1"><span class="s1">// icon-color: deep-blue; icon-glyph: newspaper;</span></p>
+<p class="p1"><span class="s1">// Variables used by Scriptable.</span></p>
+<p class="p1"><span class="s1">// These must be at the very top of the file. Do not edit.</span></p>
+<p class="p1"><span class="s1">// icon-color: deep-blue; icon-glyph: newspaper;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">// name: tagesschau-widget.js</span></p>
+<p class="p1"><span class="s1">// description: A scriptable widget which displays the latest tagesschau.de article </span><span class="s2">ðŸ“°</span></p>
+<p class="p1"><span class="s1">// author: Torben Haack</span></p>
+<p class="p1"><span class="s1">// email: haack@hey.com</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p3"><span class="s3">let</span><span class="s1"> tagesschauData;</span></p>
+<p class="p4"><span class="s1">try</span><span class="s4"> {</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>tagesschauData = </span><span class="s3">await</span><span class="s1"> </span><span class="s3">new</span><span class="s1"> Request(</span></p>
+<p class="p5"><span class="s4"><span class="Apple-converted-space">&nbsp; &nbsp; </span></span><span class="s1">'https://www.tagesschau.de/api2/homepage/'</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>).loadJSON();</span></p>
+<p class="p3"><span class="s1">} </span><span class="s3">catch</span><span class="s1"> (e) {</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span></span><span class="s3">const</span><span class="s1"> errorWidget = createErrorWidget();</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span></span><span class="s3">if</span><span class="s1"> (!config.runsInWidget) {</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; &nbsp; </span></span><span class="s3">await</span><span class="s1"> errorWidget.presentMedium();</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>} </span><span class="s3">else</span><span class="s1"> {</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>Script.setWidget(errorWidget);</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>}</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>Script.complete();</span></p>
+<p class="p3"><span class="s1">}</span></p>
+<p class="p3"><span class="s3">const</span><span class="s1"> widget = </span><span class="s3">await</span><span class="s1"> createWidget();</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p3"><span class="s3">if</span><span class="s1"> (!config.runsInWidget) {</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span></span><span class="s3">await</span><span class="s1"> widget.presentMedium();</span></p>
+<p class="p3"><span class="s1">} </span><span class="s3">else</span><span class="s1"> {</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>Script.setWidget(widget);</span></p>
+<p class="p3"><span class="s1">}</span></p>
+<p class="p3"><span class="s1">Script.complete();</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p4"><span class="s1">async</span><span class="s4"> </span><span class="s1">function</span><span class="s4"> </span><span class="s5">createWidget</span><span class="s4">() {</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span></span><span class="s3">let</span><span class="s1"> listWidget = </span><span class="s3">new</span><span class="s1"> ListWidget();</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>listWidget.setPadding(</span><span class="s6">15</span><span class="s1">, </span><span class="s6">15</span><span class="s1">, </span><span class="s6">15</span><span class="s1">, </span><span class="s6">15</span><span class="s1">);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>listWidget.backgroundImage = </span><span class="s3">await</span><span class="s1"> loadImage(</span></p>
+<p class="p5"><span class="s4"><span class="Apple-converted-space">&nbsp; &nbsp; </span></span><span class="s1">'http://www.tagesschau.de/infoscreen/img/background-16-9-HD.png'</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>listWidget = </span><span class="s3">await</span><span class="s1"> createHeaderImage(listWidget);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>listWidget.addSpacer(</span><span class="s6">10</span><span class="s1">);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>listWidget = </span><span class="s3">await</span><span class="s1"> createArticle(listWidget, tagesschauData.news[</span><span class="s6">0</span><span class="s1">]);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span></span><span class="s3">return</span><span class="s1"> listWidget;</span></p>
+<p class="p3"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p3"><span class="s3">async</span><span class="s1"> </span><span class="s3">function</span><span class="s1"> </span><span class="s5">createArticle</span><span class="s1">(listWidget, data) {</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span></span><span class="s3">const</span><span class="s1"> { title, shareURL } = data;</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span></span><span class="s3">const</span><span class="s1"> date = </span><span class="s3">new</span><span class="s1"> </span><span class="s5">Date</span><span class="s1">(data.date);</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span></span><span class="s3">const</span><span class="s1"> image = data.teaserImage.videowebl.imageurl;</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span></span><span class="s3">let</span><span class="s1"> { ressort } = data;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span></span><span class="s3">if</span><span class="s1"> (ressort == </span><span class="s7">undefined</span><span class="s1">) {</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>ressort = </span><span class="s8">'Sonstiges'</span><span class="s1">;</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>listWidget.url = shareURL;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>listWidget.addSpacer(</span><span class="s6">20</span><span class="s1">);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span></span><span class="s3">const</span><span class="s1"> article = listWidget.addStack();</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span></span><span class="s3">const</span><span class="s1"> articleImage = article.addImage(</span><span class="s3">await</span><span class="s1"> loadImage(image));</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>articleImage.cornerRadius = </span><span class="s6">5</span><span class="s1">;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>article.addSpacer(</span><span class="s6">10</span><span class="s1">);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span></span><span class="s3">const</span><span class="s1"> articleInfo = article.addStack();</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>articleInfo.layoutVertically();</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span></span><span class="s3">const</span><span class="s1"> articleRessort = articleInfo.addText(</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>ressort.charAt(</span><span class="s6">0</span><span class="s1">).toUpperCase() + ressort.slice(</span><span class="s6">1</span><span class="s1">)</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>);</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>articleRessort.textColor = Color.orange();</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>articleRessort.font = Font.semiboldMonospacedSystemFont(</span><span class="s6">12</span><span class="s1">);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span></span><span class="s3">const</span><span class="s1"> articleTitle = articleInfo.addText(title.replaceAll(</span><span class="s8">'+'</span><span class="s1">, </span><span class="s8">''</span><span class="s1">).trim());</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>articleTitle.textColor = Color.white();</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>articleTitle.font = Font.headline();</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>articleTitle.minimumScaleFactor = </span><span class="s6">0.5</span><span class="s1">;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span></span><span class="s3">const</span><span class="s1"> articleDate = articleInfo.addText(formatDate(date));</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>articleDate.font = Font.semiboldMonospacedSystemFont(</span><span class="s6">12</span><span class="s1">);</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>articleDate.textOpacity = </span><span class="s6">0.7</span><span class="s1">;</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>articleDate.textColor = Color.white()</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>listWidget.addSpacer(</span><span class="s6">10</span><span class="s1">);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span></span><span class="s3">return</span><span class="s1"> listWidget;</span></p>
+<p class="p3"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p6"><span class="s3">async</span><span class="s4"> </span><span class="s3">function</span><span class="s4"> </span><span class="s1">createHeaderImage</span><span class="s4">(listWidget) {</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span></span><span class="s3">const</span><span class="s1"> headerImage = listWidget.addImage(</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; &nbsp; </span></span><span class="s3">await</span><span class="s1"> loadImage(</span></p>
+<p class="p5"><span class="s4"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; </span></span><span class="s1">'https://www.ard.de/image/461284/16x9/4788513279306625340/320'</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>)</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>);</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>headerImage.imageSize = </span><span class="s3">new</span><span class="s1"> Size(</span><span class="s6">100</span><span class="s1">, </span><span class="s6">5</span><span class="s1">);</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>headerImage.tintColor = Color.white();</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>headerImage.centerAlignImage();</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>headerImage.applyFillingContentMode();</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span></span><span class="s3">return</span><span class="s1"> listWidget;</span></p>
+<p class="p3"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p6"><span class="s3">function</span><span class="s4"> </span><span class="s1">createErrorWidget</span><span class="s4">() {</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span></span><span class="s3">const</span><span class="s1"> errorWidget = </span><span class="s3">new</span><span class="s1"> ListWidget();</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span></span><span class="s3">const</span><span class="s1"> bgGradient = </span><span class="s3">new</span><span class="s1"> LinearGradient();</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>bgGradient.locations = [</span><span class="s6">0</span><span class="s1">, </span><span class="s6">1</span><span class="s1">];</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>bgGradient.colors = [</span><span class="s3">new</span><span class="s1"> Color(</span><span class="s8">'#2D65AE'</span><span class="s1">), </span><span class="s3">new</span><span class="s1"> Color(</span><span class="s8">'#19274C'</span><span class="s1">)];</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>errorWidget.backgroundGradient = bgGradient;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span></span><span class="s3">const</span><span class="s1"> title = errorWidget.addText(</span><span class="s8">'tagesschau'</span><span class="s1">);</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>title.font = Font.headline();</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>title.centerAlignText();</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>errorWidget.addSpacer(</span><span class="s6">10</span><span class="s1">);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span></span><span class="s3">const</span><span class="s1"> errorText = errorWidget.addText(</span></p>
+<p class="p5"><span class="s4"><span class="Apple-converted-space">&nbsp; &nbsp; </span></span><span class="s1">'Es besteht keine Verbindung zum Internet.'</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>);</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>errorText.font = Font.semiboldMonospacedSystemFont(</span><span class="s6">16</span><span class="s1">);</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>errorText.textColor = Color.red();</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span></span><span class="s3">const</span><span class="s1"> errorText2 = errorWidget.addText(</span></p>
+<p class="p5"><span class="s4"><span class="Apple-converted-space">&nbsp; &nbsp; </span></span><span class="s1">'Dieses Widget benÃ¶tigt eine Verbindung zum Internet um funktionieren zu kÃ¶nnen.'</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>);</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>errorText2.font = Font.regularRoundedSystemFont(</span><span class="s6">14</span><span class="s1">);</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>errorText2.textColor = Color.red();</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>errorText2.textOpacity = </span><span class="s6">0.6</span><span class="s1">;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span></span><span class="s3">return</span><span class="s1"> errorWidget;</span></p>
+<p class="p3"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p4"><span class="s1">async</span><span class="s4"> </span><span class="s1">function</span><span class="s4"> </span><span class="s5">loadImage</span><span class="s4">(url) {</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span></span><span class="s3">return</span><span class="s1"> </span><span class="s3">await</span><span class="s1"> </span><span class="s3">new</span><span class="s1"> Request(url).loadImage();</span></p>
+<p class="p3"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p3"><span class="s3">function</span><span class="s1"> </span><span class="s5">formatDate</span><span class="s1">(dateObject) {</span></p>
+<p class="p7"><span class="s4"><span class="Apple-converted-space">&nbsp; </span></span><span class="s3">return</span><span class="s4"> </span><span class="s8">`</span><span class="s1">${leadingZero(dateObject.getDate())}</span><span class="s8">.</span><span class="s1">${leadingZero(</span></p>
+<p class="p7"><span class="s1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>dateObject.getMonth() + </span><span class="s6">1</span></p>
+<p class="p7"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>)}</span><span class="s8">.</span><span class="s1">${dateObject.getFullYear()}</span><span class="s8">, </span><span class="s1">${leadingZero(</span></p>
+<p class="p7"><span class="s1"><span class="Apple-converted-space">&nbsp; &nbsp; </span>dateObject.getHours()</span></p>
+<p class="p7"><span class="s1"><span class="Apple-converted-space">&nbsp; </span>)}</span><span class="s8">:</span><span class="s1">${leadingZero(dateObject.getMinutes())}</span><span class="s8"> Uhr`</span><span class="s4">;</span></p>
+<p class="p3"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p6"><span class="s3">function</span><span class="s4"> </span><span class="s1">leadingZero</span><span class="s4">(input) {</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">&nbsp; </span></span><span class="s3">return</span><span class="s1"> (</span><span class="s8">'0'</span><span class="s1"> + input).slice(-</span><span class="s6">2</span><span class="s1">);</span></p>
+<p class="p3"><span class="s1">}</span></p>
+
+
+</body></html>Ytext/htmlUUTF-8    ( 7 N ` v ”FGY´Y¾                           YÄ
